@@ -1,0 +1,16 @@
+<div class="row">
+  <div *ngFor="let sms of smsNotifications" class="col s12">
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <div class="white-text card-panel blue">
+          <p class="left-align valign-wrapper"><i class="small material-icons">perm_phone_msg</i>    {{sms.from}}</p>
+
+          <p class="center-align">{{sms.text}}</p>
+
+          <p class="right-align"><i>{{sms.timestamp}}</i></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

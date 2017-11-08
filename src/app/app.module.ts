@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { SmsNotificationsComponent } from './sms-notifications/sms-notifications.component'
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SmsNotificationsComponent
   ],
   imports: [
     BrowserModule
