@@ -1,0 +1,14 @@
+nav {
+  height: 50px;
+  line-height: 50px;
+}
+
+nav a {
+  font-size: 20px;
+}
+
+nav img {
+  height: 20px;
+  padding-left: 50px;
+  padding-top: 4px;
+}
