@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Pusher from 'pusher-js';
+import * as Ably from 'ably';
 
 @Component({
   selector: 'app-sms-notifications',
@@ -11,13 +11,11 @@ export class SmsNotificationsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    var pusher = new Pusher('PUSHER_APP_KEY', {
-      cluster: 'eu',
-      encrypted: true
-    });
+    let options: Ably.Types.ClientOptions = { key: 'ABLY_KEY' };
+    let client = new Ably.Realtime(options);
+    let channel = client.channels.get('sms-notification');
 
-    var channel = pusher.subscribe('sms-notification');
-    channel.bind('new-sms', data => {
+    channel.subscribe('new-sms', data => {
       this.smsNotifications.push(data.data);
     });
   }

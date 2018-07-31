@@ -5,9 +5,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var Pusher = require('pusher');
+var ably = new require('ably').Realtime('ABLY_KEY');
 
-var pusher = new Pusher({appId: PUSHER_APP_ID, key: PUSHER_APP_KEY, secret: PUSHER_APP_SECRET, cluster: 'eu', encrypted: true});
+var channel = ably.channels.get('sms-notification');
 
 const server = app.listen(3000, () => {
   console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
@@ -31,7 +31,7 @@ function handleParams(params, res) {
       timestamp: params['message-timestamp']
     };
 
-    pusher.trigger('sms-notification', 'new-sms', {"data": incomingData});
+    channel.publish('new-sms', incomingData);
     res.send(incomingData);
   }
   res.status(200).end();
