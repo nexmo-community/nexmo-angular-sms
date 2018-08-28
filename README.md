@@ -1,6 +1,6 @@
 # nexmo-angular-sms
 
-## This is a demo application built in this blog post: https://www.nexmo.com/blog/2018/08/07/sms-notifications-browser-with-angular-node-ably-dr/
+## A demo application built in this blog post: https://www.nexmo.com/blog/2018/08/07/sms-notifications-browser-with-angular-node-ably-dr/
 
 If you want to skip it, here are setup instructions
 1. Download [ngrok](https://ngrok.com/download)
