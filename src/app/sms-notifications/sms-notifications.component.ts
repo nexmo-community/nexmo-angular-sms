@@ -11,7 +11,7 @@ export class SmsNotificationsComponent implements OnInit {
 
   ngOnInit() {
     let options: Ably.Types.ClientOptions = {
-      key: '6Ab__w.nDYtlg:w4iO7zJiPjFfT75f'
+      key: 'ABLY-KEY'
     };
     let client = new Ably.Realtime(options);
     let channel = client.channels.get('sms-notification');

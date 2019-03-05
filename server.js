@@ -5,7 +5,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var ably = new require('ably').Realtime('6Ab__w.nDYtlg:w4iO7zJiPjFfT75f');
+var ably = new require('ably').Realtime('ABLY-KEY');
 
 var channel = ably.channels.get('sms-notification');
 
