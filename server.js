@@ -3,18 +3,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-var ably = new require('ably').Realtime('ABLY_KEY');
+var ably = new require('ably').Realtime('6Ab__w.nDYtlg:w4iO7zJiPjFfT75f');
 
 var channel = ably.channels.get('sms-notification');
 
 const server = app.listen(3000, () => {
-  console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
+  console.log(
+    'Express server listening on port %d in %s mode',
+    server.address().port,
+    app.settings.env
+  );
 });
 
-app.post('/inbound', (req, res) => {
-  handleParams(req.body, res);
+app.get('/inbound', (req, res) => {
+  handleParams(req.query, res);
 });
 
 function handleParams(params, res) {
