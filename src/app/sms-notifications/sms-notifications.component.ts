@@ -7,11 +7,12 @@ import * as Ably from 'ably';
   styleUrls: ['./sms-notifications.component.css']
 })
 export class SmsNotificationsComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    let options: Ably.Types.ClientOptions = { key: 'ABLY_KEY' };
+    let options: Ably.Types.ClientOptions = {
+      key: 'ABLY-KEY'
+    };
     let client = new Ably.Realtime(options);
     let channel = client.channels.get('sms-notification');
 
@@ -21,5 +22,4 @@ export class SmsNotificationsComponent implements OnInit {
   }
 
   smsNotifications: Object[] = [];
-
 }
